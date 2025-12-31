@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《zygame》隐私政策</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* 容器 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 页眉 */
+        header {
+            background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 主内容区 */
+        main {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        /* 章节样式 */
+        section {
+            margin-bottom: 2.5rem;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #4a6fa5;
+        }
+        
+        h3 {
+            color: #4a6fa5;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        /* 列表样式 */
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        /* 权限说明块 */
+        .permission-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4a6fa5;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .permission-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .permission-title:before {
+            content: "🔒";
+            margin-right: 8px;
+        }
+        
+        /* 联系信息样式 */
+        .contact-info {
+            background-color: #f0f7ff;
+            border: 1px solid #d1e3ff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .email-link {
+            color: #4a6fa5;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dotted #4a6fa5;
+        }
+        
+        .email-link:hover {
+            color: #2c3e50;
+            border-bottom: 1px solid #2c3e50;
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            margin-top: 2rem;
+        }
+        
+        .update-info {
+            font-style: italic;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+        
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #4a6fa5;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #2c3e50;
+            transform: translateY(-3px);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 1.8rem 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            main {
+                padding: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            .permission-block, .contact-info {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉 -->
+    <header>
+        <div class="header-content">
+            <h1>《zygame》隐私政策</h1>
+            <p class="subtitle">我们深知个人信息的重要性，并承诺按照合法、正当、必要和诚信的原则处理您的信息。</p>
+        </div>
+    </header>
+    
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 主要内容 -->
+        <main>
+            <section id="intro">
+                <p>欢迎您游玩《zygame》！本隐私政策说明旨在清晰告知您，在仅使用存储和网络权限的情况下，我们如何收集和使用信息。请您在使用我们的服务前，仔细阅读并理解本政策。</p>
+            </section>
+            
+            <section id="collection">
+                <h2>1. 我们如何收集和使用信息</h2>
+                <p>为保障游戏的基础功能正常运行，我们会在您同意的前提下，申请以下系统权限并收集相关信息：</p>
+                
+                <div class="permission-block">
+                    <div class="permission-title">存储权限</div>
+                    <p>用于在您的设备本地保存游戏的进度、设置等数据，确保您下次游玩时可以继续游戏。除非您主动分享，否则这些数据仅保存在您的设备上，我们不会主动上传。</p>
+                </div>
+                
+                <div class="permission-block">
+                    <div class="permission-title">网络权限</div>
+                    <p>用于连接服务器，验证游戏版本、提供必要的在线服务或错误报告。在此过程中，我们可能会收集必要的设备信息（如设备型号、操作系统版本、唯一的设备标识符）和网络信息（如IP地址、网络类型），以保障服务的安全稳定、适配您的设备并防止欺诈行为。</p>
+                </div>
+                
+                <p>我们收集的信息将仅用于以下目的：</p>
+                <ul>
+                    <li>提供、维护和改进我们的游戏服务</li>
+                    <li>确保游戏的安全性和稳定性</li>
+                    <li>诊断技术问题并进行错误修复</li>
+                    <li>遵守法律法规要求</li>
+                </ul>
+            </section>
+            
+            <section id="storage">
+                <h2>2. 信息的存储与保护</h2>
+                <h3>2.1 本地数据存储</h3>
+                <p>您的游戏进度、个人设置等本地数据存储于您自己的设备中。这些数据会随着游戏的正常操作自动保存和加载。</p>
+                
+                <h3>2.2 服务器数据存储</h3>
+                <p>必要的设备及日志信息会在进行去标识化处理后，于服务器上安全保存一定期限，用于维护服务稳定。我们通常会将这些数据保留合理必要的时间，以满足本政策所述目的，或遵守法律要求。</p>
+                
+                <h3>2.3 安全保护措施</h3>
+                <p>我们将采取加密、访问控制等合理措施保护您的信息安全，防止数据遭到未经授权的访问、披露、使用、修改或破坏。然而，请注意没有任何互联网传输或电子存储方法是100%安全的，我们无法保证信息的绝对安全。</p>
+            </section>
+            
+            <section id="minors">
+                <h2>3. 未成年人保护</h2>
+                <p>如果您是未成年人，请在监护人的指导下使用我们的服务。我们严格遵守国家关于网络游戏防沉迷的规定：</p>
+                <ul>
+                    <li>我们不会在知情的情况下收集未成年人的个人信息</li>
+                    <li>我们鼓励父母和监护人为未成年人使用互联网提供指导</li>
+                    <li>如果监护人发现我们在未获同意的情况下收集了未成年人的个人信息，请通过联系方式与我们联系，我们将尽快删除相关数据</li>
+                </ul>
+            </section>
+            
+            <section id="updates">
+                <h2>4. 政策更新</h2>
+                <p>我们可能会适时更新本隐私政策，以反映服务变更、法律要求或业界最佳实践。更新后，我们会通过游戏内公告等方式提醒您。重大变更时，我们可能会提供更显著的通知。</p>
+                <p>我们建议您定期查看本政策以了解最新信息。您继续使用我们的服务即表示您接受更新后的政策。</p>
+            </section>
+            
+            <section id="contact">
+                <h2>5. 联系我们</h2>
+                <p>如果您对隐私政策有任何疑问、建议或需要行使您的隐私权利，请通过以下方式联系我们：</p>
+                
+                <div class="contact-info">
+                    <p><strong>电子邮箱：</strong><a href="mailto:10378521@qq.com" class="email-link">10378521@qq.com</a></p>
+                    <p>我们将在收到您的请求后15个工作日内予以回复。为了保护您的隐私和安全，我们可能会在处理您的请求前验证您的身份。</p>
+                </div>
+            </section>
+            
+            <section id="effective-date">
+                <h2>6. 生效日期</h2>
+                <p>本隐私政策最后更新于：<strong>2023年10月</strong></p>
+                <p class="update-info">请注意：本政策可能会不时更新，请定期查看以获取最新信息。</p>
+            </section>
+        </main>
+        
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2023 月旋工作室 版权所有</p>
+            <p>本隐私政策最终解释权归月旋工作室所有</p>
+        </footer>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // 返回顶部按钮逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            // 监听滚动事件
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // 点击返回顶部
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // 自动更新年份
+            const yearElements = document.querySelectorAll('footer p');
+            if (yearElements.length > 0) {
+                const currentYear = new Date().getFullYear();
+                yearElements[0].innerHTML = yearElements[0].innerHTML.replace('2023', currentYear);
+            }
+            
+            // 自动更新最后更新日期
+            const effectiveDateElement = document.querySelector('#effective-date strong');
+            if (effectiveDateElement) {
+                const currentDate = new Date();
+                const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+                const formattedDate = currentDate.getFullYear() + '年' + months[currentDate.getMonth()];
+                effectiveDateElement.textContent = formattedDate;
+            }
+        });
+    </script>
+</body>
+</html>
